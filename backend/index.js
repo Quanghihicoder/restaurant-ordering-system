@@ -12,6 +12,12 @@ import cors from "cors";
 // import routes
 import router from "./routes/routes.js";
 
+// import path
+import path from "path";
+
+// use path
+const __dirname = path.resolve();
+
 // init express
 const app = express();
 
@@ -34,12 +40,17 @@ app.use(router);
 //   app.get(/.*/, (req,res)=> res.sendFile(__dirname + '/public/index.html'));
 // }
 
+app.use(express.static(path.join(__dirname, './restaurant_management/')));
+app.get('/restaurant_management*', function (req, res) {
+  res.sendFile(path.join(__dirname, './restaurant_management/index.html'))
+});
+
 app.get('/', function(req, res){
     res.json({ message: 'Welcome to restaurant api' });
 });
 
 // PORT
-const PORT = process.env.PORT || 8081;
+const PORT = process.env.PORT || 80;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
