@@ -157,7 +157,11 @@ export default {
         };
     },
 
-    created() {
+    // created() {
+    //     this.getAllCartItem();
+    // },
+
+    mounted() {
         this.getAllCartItem();
     },
 
