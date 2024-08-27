@@ -102,11 +102,13 @@ export default {
         }
     },
 
-    created() {
-        this.getAllBills();
-    },
+    // created() {
+    //     this.getAllBills();
+    // },
 
     mounted: function () {
+        this.getAllBills();
+
         this.autoUpdate();
     },
 

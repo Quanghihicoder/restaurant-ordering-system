@@ -74,14 +74,19 @@ export default {
         }
     },
 
-    created() {
+    // created() {
+    //     this.getAllBills();
+    //     if (!this.admin) {
+    //         this.$router.push("/");
+    //     }
+    // },
+
+    mounted: function () {
         this.getAllBills();
         if (!this.admin) {
             this.$router.push("/");
         }
-    },
-
-    mounted: function () {
+        
         this.autoUpdate();
     },
 

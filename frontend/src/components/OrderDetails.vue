@@ -43,7 +43,12 @@ export default {
         }
     },
 
-    created() {
+    // created() {
+    //     this.getAllFoods();
+    //     this.getBillStatus()
+    // },
+
+    mounted() {
         this.getAllFoods();
         this.getBillStatus()
     },

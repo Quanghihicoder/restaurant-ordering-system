@@ -28,7 +28,11 @@ export default {
         FooterComponent
     },
 
-    created() {
+    // created() {
+    //     this.getFoodsData()
+    // },
+
+    mounted() {
         this.getFoodsData()
     },
 
