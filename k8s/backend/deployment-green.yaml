@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-green
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: backend
+      version: green
+  template:
+    metadata:
+      labels:
+        app: backend
+        version: green
+    spec:
+      containers:
+      - name: backend
+        image: sharmaaakash170/node-backend:new-version
+        resources:
+          limits:
+            memory: "256Mi"
+            cpu: "500m"
+          requests:
+            memory: "128Mi"
+            cpu: "200m"
+        ports:
+        - containerPort: 8001
+        env: 
+          - name: MYSQL_HOST
+            value: "mysql"
+          - name: MYSQL_ROOT_USER
+            value: "root"
+          - name: MYSQL_ROOT_PASSWORD
+            value: "root"
+          - name: MYSQL_DATABASE
+            value: "db_restaurant"
+          

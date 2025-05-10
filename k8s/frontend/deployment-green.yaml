@@ -1,19 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: frontend
+  name: frontend-green
 spec:
+  replicas: 2
   selector:
     matchLabels:
       app: frontend
+      version: green
   template:
     metadata:
       labels:
         app: frontend
+        version: green
     spec:
       containers:
       - name: frontend
-        image: sharmaaakash170/frontend-vue:latest
+        image: sharmaaakash170/frontend-vue:v1
         resources:
           limits:
             memory: "256Mi"

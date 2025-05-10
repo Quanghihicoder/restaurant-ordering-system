@@ -5,6 +5,7 @@ metadata:
 spec:
   selector:
     app: frontend
+    version: blue
   ports:
   - port: 80
     targetPort: 80
