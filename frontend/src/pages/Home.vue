@@ -3,6 +3,7 @@
         <div class="home-main">
             <div class="content">
                 <span>welcome foodies</span>
+                <h1>GREEN Deployment</h1>
                 <h3>Original taste from Mexico 😋</h3>
                 <p>We guarantee to use fresh food with the best quality. Customers will enjoy Mexican cuisine with
                     explosive, sophisticated flavors.</p>

@@ -1,67 +1,81 @@
-// using nodemon so that you do not need to type node index.js every time new code saved
-
-// import express - is for building the Rest apis
 import express from "express";
-
-// import body-parser - helps to parse the request and create the req.body object
 import bodyParser from "body-parser";
-
-// import cors - provides Express middleware to enable CORS with various options, connect frontend
 import cors from "cors";
-
-// import routes
+import path from "path";
 import router from "./routes/routes.js";
 
-// import path
-import path from "path";
+// Prometheus client setup
+import client from "prom-client";
 
-// use path
+// Initialize path for static files
 const __dirname = path.resolve();
 
-// init express
+// Initialize express
 const app = express();
 
-// use express json
+// Prometheus setup
+const register = new client.Registry();
+client.collectDefaultMetrics({ register });
+
+// Custom metrics: HTTP Request Counter and Response Time Histogram
+const httpRequestCounter = new client.Counter({
+  name: "http_requests_total",
+  help: "Total number of HTTP requests",
+  labelNames: ["method", "route", "status_code"],
+});
+register.registerMetric(httpRequestCounter);
+
+const responseTimeHistogram = new client.Histogram({
+  name: "http_response_time_seconds",
+  help: "HTTP response duration in seconds",
+  labelNames: ["method", "route"],
+});
+register.registerMetric(responseTimeHistogram);
+
+// Middleware to track HTTP requests and response times
+app.use((req, res, next) => {
+  const end = responseTimeHistogram.startTimer();
+  res.on("finish", () => {
+    // Increment the request counter
+    httpRequestCounter.labels(req.method, req.path, res.statusCode).inc();
+    // Track response time
+    end({ method: req.method, route: req.route?.path || req.path });
+  });
+  next();
+});
+
+// Middleware setup
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
-//use cors
 app.use(cors());
 
-// use router
+// Metrics endpoint for Prometheus scraping (Make sure this is defined early)
+app.get('/metrics', async (req, res) => {
+  try {
+    res.set('Content-Type', register.contentType);
+    res.end(await register.metrics());
+  } catch (err) {
+    res.status(500).send(err);
+  }
+});
+
+// Routes setup (Make sure other routes are defined after /metrics)
 app.use(router);
 
-// // Handle production
-// if (process.env.NODE_ENV === 'production'){
-//   // Static folder
-//   app.use(express.static(__dirname + '/public/'));
-
-//   // Handle SPA
-//   app.get(/.*/, (req,res)=> res.sendFile(__dirname + '/public/index.html'));
-// }
-
-app.get('/api', function(req, res){
-  res.json({ message: 'Welcome to restaurant api' });
-});
-
+// Static files and SPA (if needed)
 app.use(express.static(path.join(__dirname, './restaurant_management/')));
-app.get('/*', function (req, res) {
-  res.sendFile(path.join(__dirname, './restaurant_management/index.html'))
+
+app.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname, './restaurant_management/index.html'));
 });
 
+// API Test endpoint (optional)
+app.get('/api', (req, res) => {
+  res.json({ message: 'Welcome to the restaurant API' });
+});
 
-
-// PORT
+// Set up server port
 const PORT = process.env.PORT || 8001;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
-
-// https://www.youtube.com/watch?v=GK2TiAAxmQ0
-// https://www.bezkoder.com/node-js-rest-api-express-mysql/
-// https://www.bezkoder.com/serve-vue-app-express/
-// https://www.bezkoder.com/deploy-node-js-app-heroku-cleardb-mysql/
-// https://www.youtube.com/watch?v=W-b9KGwVECs
-// https://stackoverflow.com/questions/43362014/heroku-no-default-language-could-be-detected-for-this-app-error-thrown-for-no
-// https://stackoverflow.com/questions/16128395/what-is-procfile-and-web-and-worker
-// https://www.youtube.com/watch?v=lwOsI8LtVEQ

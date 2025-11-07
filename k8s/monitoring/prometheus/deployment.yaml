@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prometheus
+spec:
+  selector:
+    matchLabels:
+      app: prometheus
+  template:
+    metadata:
+      labels:
+        app: prometheus
+    spec:
+      containers:
+      - name: prometheus
+        image: prom/prometheus
+        ports:
+        - containerPort: 9090
+        args: 
+          - "--config.file=/etc/prometheus/prometheus.yml"
+        volumeMounts: 
+          - name: config-volume
+            mountPath: /etc/prometheus/ 
+        resources: 
+          requests:
+            memory: "512Mi"
+            cpu: "250m"
+          limits:
+            memory: "1Gi"
+            cpu: "500m"
+      volumes: 
+        - name: config-volume
+          configMap: 
+            name: prometheus-config
