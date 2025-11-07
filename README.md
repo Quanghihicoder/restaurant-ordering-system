@@ -7,6 +7,8 @@ https://www.youtube.com/watch?v=Yf8zB4dXp7I
 
 ⭐ **Give a star if you like it!**
 
+Notes: If you’re not familiar with containerization (Docker) or Kubernetes (K8s), run a git checkout to the "v1" branch. It contains the old code shown in the video.
+
 ---
 
 ## 🧰 Features & Technologies
