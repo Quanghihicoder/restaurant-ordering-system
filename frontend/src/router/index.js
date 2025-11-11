@@ -1,24 +1,23 @@
 import { createWebHistory, createRouter } from "vue-router";
-import Login from '../pages/Login.vue';
-import Register from '../pages/Register.vue';
-import Home from '../pages/Home.vue';
-import About from '../pages/About.vue';
-import Promo from '../pages/Promo.vue';
-import Menu from '../pages/Menu.vue';
-import Table from '../pages/Table.vue';
-import Cart from '../pages/Cart.vue';
-import Checkout from '../pages/Checkout.vue';
-import Thank from '../pages/Thank.vue';
-import MyOrder from '../pages/MyOrder.vue';
-import Admin from '../admin/Admin.vue';
-import Dashboard from '../admin/Dashboard.vue';
-
+import Login from "../pages/Login.vue";
+import Register from "../pages/Register.vue";
+import Home from "../pages/Home.vue";
+import About from "../pages/About.vue";
+import Promo from "../pages/Promo.vue";
+import Menu from "../pages/Menu.vue";
+import Table from "../pages/Table.vue";
+import Cart from "../pages/Cart.vue";
+import Checkout from "../pages/Checkout.vue";
+import Thank from "../pages/Thank.vue";
+import MyOrder from "../pages/MyOrder.vue";
+import Admin from "../admin/Admin.vue";
+import Dashboard from "../admin/Dashboard.vue";
 
 const routes = [
   {
     path: "/",
     name: "Home",
-    component: Home, 
+    component: Home,
   },
   {
     path: "/about",
@@ -81,7 +80,7 @@ const routes = [
     component: Dashboard,
   },
   {
-    path: '/:pathMatch(.*)*',
+    path: "/:pathMatch(.*)*",
     component: Home,
     // https://stackoverflow.com/questions/68504803/how-can-i-make-a-catch-all-other-route-in-vue-router-also-catch-the-url-when-p
   },

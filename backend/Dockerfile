@@ -1,11 +1,30 @@
 FROM node:latest 
 
-WORKDIR /app 
+# Install dependencies for health checks
+RUN apt-get update && \
+    apt-get install -y netcat-openbsd && \
+    rm -rf /var/lib/apt/lists/*
 
-COPY . . 
+# Set working directory
+WORKDIR /app
 
-RUN npm install 
+# Copy package files first for better caching
+COPY package*.json ./
 
-RUN npm install prom-client
+# Install dependencies
+RUN npm install
 
-CMD [ "npm", "start" ]
+# Copy the rest of the application files
+COPY . .
+
+# Set executable permissions for entrypoint
+RUN chmod +x entrypoint.sh
+
+# Expose application port
+EXPOSE 8000
+
+# Set entrypoint
+ENTRYPOINT ["./entrypoint.sh"]
+
+# Default command
+CMD ["npm", "start"]

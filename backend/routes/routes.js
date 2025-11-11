@@ -1,45 +1,41 @@
-// import express 
+// import express
 import express from "express";
-// import functions from controller 
+// import functions from controller
 import {
-    showFoods,
-    showFoodById,
-    createFood,
-    updateFood,
-    deleteFood,
+  showFoods,
+  showFoodById,
+  createFood,
+  updateFood,
+  deleteFood,
 } from "../controllers/food.js";
 
-import {
-    showAUser,
-    createAccount
-} from "../controllers/user.js";
+import { showAUser, createAccount } from "../controllers/user.js";
 
 import {
-    addItems,
-    getItem,
-    updateItem,
-    allItems,
-    deleteItem,
-    deleteItems
+  addItems,
+  getItem,
+  updateItem,
+  allItems,
+  deleteItem,
+  deleteItems,
 } from "../controllers/cart.js";
 
-import {
-    createBooking
-} from "../controllers/booktable.js";
+import { createBooking } from "../controllers/booktable.js";
 
 import {
-    createBillDetails,getBillDetailsById
+  createBillDetails,
+  getBillDetailsById,
 } from "../controllers/billdetails.js";
 
 import {
-    showNewestStatusId,
-    createBillStatus, 
-    getAllBillsByUser,
-    getAllBillsByBill,
-    getAllBills,
-    updateBillStatus,
-    updateBillPaid,
-    cancelBillStatus
+  showNewestStatusId,
+  createBillStatus,
+  getAllBillsByUser,
+  getAllBillsByBill,
+  getAllBills,
+  updateBillStatus,
+  updateBillPaid,
+  cancelBillStatus,
 } from "../controllers/billstatus.js";
 
 // init express router
@@ -47,84 +43,62 @@ const router = express.Router();
 
 ////////////////////////// FOOD ////////////////////////////////
 // get all Food
-router.get("/api/foods", showFoods);
+router.get("/foods", showFoods);
 
-// get single Food 
-router.get("/api/foods/:id", showFoodById);
+// get single Food
+router.get("/foods/:id", showFoodById);
 
 // create Food
-router.post("/api/foods", createFood);
+router.post("/foods", createFood);
 
-// update Food 
-router.put("/api/foods/:id", updateFood);
+// update Food
+router.put("/foods/:id", updateFood);
 
 // delete Food
-router.delete("/api/foods/:id", deleteFood);
-
-
+router.delete("/foods/:id", deleteFood);
 
 ////////////////////////// USER ////////////////////////////////
 // get all user
-router.get("/api/users/:email", showAUser);
+router.get("/users/:email", showAUser);
 
 // create account
-router.post("/api/users/", createAccount);
-
-
+router.post("/users/", createAccount);
 
 ////////////////////////// CART ////////////////////////////////
 // add to cart
-router.post("/api/cartItem", addItems);
+router.post("/cartItem", addItems);
 
 // get a item in cart
-router.get("/api/cartItem/:user_id/:food_id", getItem);
+router.get("/cartItem/:user_id/:food_id", getItem);
 
 // get all items by user id
-router.get("/api/cartItem/:id", allItems);
+router.get("/cartItem/:id", allItems);
 
 // update item qty
-router.put("/api/cartItem/", updateItem);
+router.put("/cartItem/", updateItem);
 
 // delete a item in cart
-router.delete("/api/cartItem/:user_id/:food_id", deleteItem);
+router.delete("/cartItem/:user_id/:food_id", deleteItem);
 
 // delete all items in cart
-router.delete("/api/cartItem/:id", deleteItems);
-
-
+router.delete("/cartItem/:id", deleteItems);
 
 ////////////////////////// Booking ////////////////////////////////
-router.post("/api/booking", createBooking);
-
-
+router.post("/booking", createBooking);
 
 ////////////////////////// Bill Details ////////////////////////////////
-router.post("/api/billdetails", createBillDetails);
-router.get("/api/billdetails/:id", getBillDetailsById);
-
-
+router.post("/billdetails", createBillDetails);
+router.get("/billdetails/:id", getBillDetailsById);
 
 ////////////////////////// Bill Status ////////////////////////////////
-router.get("/api/billstatus/new", showNewestStatusId);
-router.post("/api/billstatus", createBillStatus);
-router.get("/api/billstatus/user/:id", getAllBillsByUser);
-router.get("/api/billstatus/bill/:id", getAllBillsByBill);
-router.get("/api/billstatus", getAllBills);
-router.put("/api/billstatus/:id", updateBillStatus);
-router.put("/api/billstatus/paid/:id", updateBillPaid);
-router.put("/api/billstatus/cancel/:id", cancelBillStatus);
-
-
-
-
+router.get("/billstatus/new", showNewestStatusId);
+router.post("/billstatus", createBillStatus);
+router.get("/billstatus/user/:id", getAllBillsByUser);
+router.get("/billstatus/bill/:id", getAllBillsByBill);
+router.get("/billstatus", getAllBills);
+router.put("/billstatus/:id", updateBillStatus);
+router.put("/billstatus/paid/:id", updateBillPaid);
+router.put("/billstatus/cancel/:id", cancelBillStatus);
 
 // export default router
 export default router;
-
-
-
-
-
-
-
-
