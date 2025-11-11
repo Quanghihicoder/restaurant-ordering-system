@@ -1,6 +1,45 @@
 @echo off
 setlocal enabledelayedexpansion
 
+REM --- Check for --mobile flag ---
+set MOBILE_FLAG=0
+for %%a in (%*) do (
+    if "%%a"=="--mobile" set MOBILE_FLAG=1
+)
+
+if %MOBILE_FLAG% equ 1 (
+    echo --mobile flag detected.
+    
+    REM --- Path to your Android project ---
+    set PROJECT_DIR="\mobile"
+    
+    REM --- Check if Android Studio exists in common locations ---
+    set "ANDROID_STUDIO_FOUND=0"
+    if EXIST "C:\Program Files\Android\Android Studio\bin\studio64.exe" set ANDROID_STUDIO_FOUND=1
+    if EXIST "C:\Program Files (x86)\Android\Android Studio\bin\studio64.exe" set ANDROID_STUDIO_FOUND=1
+    
+    if "%ANDROID_STUDIO_FOUND%"=="0" (
+        echo Android Studio not found. Please install it first.
+        exit /b 1
+    ) else (
+        echo Android Studio found.
+    )
+
+    REM --- Check if Gradle wrapper exists ---
+    if NOT EXIST ".\mobile\gradlew.bat" (
+        echo Gradle wrapper not found. Are you in an Android project?
+        exit /b 1
+    )
+
+    REM --- Launch Android Studio in this folder ---
+    if EXIST "C:\Program Files\Android\Android Studio\bin\studio64.exe" (
+        start "" "C:\Program Files\Android\Android Studio\bin\studio64.exe" ".\mobile"
+    ) else (
+        start "" "C:\Program Files (x86)\Android\Android Studio\bin\studio64.exe" ".\mobile"
+    )
+)
+
+
 REM --- Exit on error ---
 set error_flag=0
 

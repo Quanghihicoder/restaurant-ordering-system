@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Home"
+        android:id="@+id/homeScreen"
+        android:icon="@drawable/ic_baseline_food_bank"
+        />
+    <item android:title="Menu"
+        android:id="@+id/menuScreen"
+        android:icon="@drawable/ic_baseline_flatware"
+        />
+
+    <item android:title="Cart"
+        android:id="@+id/cartScreen"
+        android:icon="@drawable/ic_baseline_shopping_basket"
+        />
+
+    <item android:title="Activity"
+        android:id="@+id/activityScreen"
+        android:icon="@drawable/ic_baseline_assignment"
+        />
+</menu>
