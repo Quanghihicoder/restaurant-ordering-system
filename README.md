@@ -6,7 +6,7 @@
 
 `./run.sh` for Mac, Linux
 
-`run.bat` for Window
+`run.bat` for Window, add `--mobile` to open Android Studio, and wait until it ready to run Android app
 
 ## Simple & University friendly
 
