@@ -1,4 +1,5 @@
--- database name: "db_restaurant"
+CREATE DATABASE IF NOT EXISTS qfood;
+USE qfood;
 
 CREATE TABLE food( 
     food_id INT(11) PRIMARY KEY AUTO_INCREMENT, 

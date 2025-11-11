@@ -1,7 +1,7 @@
 {
   "name": "restaurant_management",
   "version": "0.1.0",
-  "homepage": "../",
+  "homepage": "./",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",

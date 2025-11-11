@@ -1,21 +1,20 @@
-FROM node:18-alpine AS build 
+# Use official Node.js image
+FROM node:20-alpine
 
-WORKDIR /app 
+# Set working directory inside container
+WORKDIR /app
 
-COPY package*.json ./ 
+# Copy package.json and package-lock.json / yarn.lock
+COPY package*.json ./
 
-RUN npm install 
+# Install dependencies
+RUN npm install
 
+# Copy project files
 COPY . .
 
-RUN npm run build 
+# Expose Vue CLI dev server port
+EXPOSE 8080
 
-FROM nginx:stable-alpine 
-
-RUN rm -rf /usr/share/nginx/html/* 
-
-COPY --from=build /app/dist /usr/share/nginx/html 
-
-EXPOSE 80 
-
-CMD [ "nginx", "-g", "daemon off;" ]
+# Start Vue CLI dev server
+CMD ["npm", "run", "serve"]

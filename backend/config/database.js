@@ -2,14 +2,12 @@ import mysql from "mysql2";
 
 // create the connection to database
 
-const db = mysql.createConnection({
-  host: process.env.MYSQL_HOST || "mysql",
-  user: process.env.MYSQL_USER || "root",
-  password: process.env.MYSQL_PASSWORD || "root",
-  database: process.env.MYSQL_DATABASE || "db_restaurant"
-});
+const databaseUrl =
+  process.env.DATABASE_URL || "mysql://root:root@mysql:3306/qfood";
 
-db.connect(error => {
+const db = mysql.createConnection(databaseUrl);
+
+db.connect((error) => {
   if (error) throw error;
   console.log("Successfully connected to the database.");
 });
