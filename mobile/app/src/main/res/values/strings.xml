@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">QFood</string>
+    <string name="welcome_login">Login</string>
+    <string name="welcome_register">Register</string>
+</resources>

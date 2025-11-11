@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/greenMain"
+    android:orientation="vertical"
+    tools:context=".activities.CheckoutActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/backgroundImage1"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_gravity="end"
+            android:src="@drawable/ic_launcher_background" />
+
+        <ImageView
+            android:id="@+id/backgroundImage2"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/ic_launcher_background" />
+
+        <ImageView
+            android:id="@+id/backgroundImage3"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_gravity="end"
+            android:src="@drawable/ic_launcher_background" />
+
+        <ImageView
+            android:id="@+id/backgroundImage4"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/ic_launcher_background" />
+
+        <ImageView
+            android:id="@+id/backgroundImage5"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_gravity="end"
+            android:src="@drawable/ic_launcher_background" />
+
+        <ImageView
+            android:id="@+id/backgroundImage6"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/ic_launcher_background" />
+
+        <ImageView
+            android:id="@+id/backgroundImage7"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_gravity="end"
+            android:src="@drawable/ic_launcher_background" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:elevation="1dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="320dp"
+                android:layout_height="wrap_content">
+
+                <ImageButton
+                    android:id="@+id/backBtn"
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/button_borderradius_12"
+                    android:backgroundTint="@color/white"
+                    android:src="@drawable/ic_baseline_keyboard_arrow_left_black" />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.8"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="20dp"
+                android:background="@drawable/button_borderradius_12"
+                android:backgroundTint="@color/white"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="FEW MORE STEP TO PLACE YOUR ORDER"
+                    android:textAllCaps="true"
+                    android:textColor="@color/greenMain"
+                    android:textSize="14sp"
+                    android:textStyle="italic|bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_borderradius_12"
+                android:backgroundTint="@color/white"
+                android:orientation="vertical"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="20dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/checkOutName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Quang's Order"
+                        android:textAllCaps="true"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/checkOutTotal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:text="$86"
+                        android:textAllCaps="true"
+                        android:textColor="@color/orangeMain"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Shipping Details"
+                    android:textColor="@color/greenMain" />
+
+                <EditText
+                    android:id="@+id/checkOutPhone"
+                    android:layout_width="280dp"
+                    android:layout_height="54dp"
+                    android:layout_marginBottom="10dp"
+                    android:hint="enter your phone"
+                    android:inputType="phone"
+                    android:maxLength="11"
+                    android:maxLines="1" />
+
+                <EditText
+                    android:id="@+id/checkOutAddress"
+                    android:layout_width="280dp"
+                    android:layout_height="54dp"
+                    android:layout_marginBottom="10dp"
+                    android:hint="enter your address"
+                    android:inputType="text"
+                    android:maxLength="50"
+                    android:maxLines="1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Payment Method"
+                    android:textColor="@color/greenMain" />
+
+                <RadioGroup
+                    android:id="@+id/paymentMethod"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/paymentCash"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:checked="true"
+                        android:text="Cash" />
+
+                    <RadioButton
+                        android:id="@+id/paymentCard"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Card (Visa)" />
+                </RadioGroup>
+
+                <EditText
+                    android:id="@+id/cardNumber"
+                    android:layout_width="280dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:hint="enter your card number"
+                    android:inputType="number"
+                    android:maxLength="16"
+                    android:maxLines="1"
+                    android:visibility="gone" />
+
+                <EditText
+                    android:id="@+id/cardName"
+                    android:layout_width="280dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:hint="ENTER NAME IN YOUR CARD"
+                    android:inputType="textCapCharacters"
+                    android:maxLength="25"
+                    android:maxLines="1"
+                    android:textAllCaps="true"
+                    android:visibility="gone" />
+
+                <EditText
+                    android:id="@+id/cardExpiry"
+                    android:layout_width="280dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:hint="expiry date: mm-yy"
+                    android:inputType="date"
+                    android:maxLength="5"
+                    android:maxLines="1"
+                    android:visibility="gone" />
+
+                <EditText
+                    android:id="@+id/cardCvv"
+                    android:layout_width="280dp"
+                    android:layout_height="wrap_content"
+                    android:hint="CVV"
+                    android:inputType="number"
+                    android:maxLength="3"
+                    android:maxLines="1"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/checkOutBtn"
+                android:layout_width="320dp"
+                android:layout_height="54dp"
+                android:background="@drawable/button_borderradius_12"
+                android:backgroundTint="@color/white"
+                android:text="Confirm and pay"
+                android:textAllCaps="true"
+                android:textColor="@color/orangeMain"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>
