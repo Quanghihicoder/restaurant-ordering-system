@@ -28,7 +28,7 @@ https://www.youtube.com/watch?v=Yf8zB4dXp7I
 
 - I developed this project back when I was in my second year, so I wasn’t familiar with JWT at the time. As a result, the Vue and Android versions have limitations—you need to log in again if you reload the page or close the app on Android.
 
-I’m currently working on a new ReactJS version and a React Native version using more advanced technologies I’ve learned recently. Some issues, like missing handling for undefined values, are also being addressed.
+- I’m currently working on a new ReactJS version and a React Native version using more advanced technologies I’ve learned recently. Some issues, like missing handling for undefined values, are also being addressed.
 
 ---
 
