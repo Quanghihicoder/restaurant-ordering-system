@@ -18,7 +18,7 @@
                 </div>
             </div>
 
-            <div class="price">
+            <div class="price" v-if="billMatch">
                 <p>Discount: ${{ billMatch.bill_discount }}</p>
                 <p>Delivery Fee: ${{ billMatch.bill_delivery }}</p>
                 <p>Total: ${{ billMatch.bill_total }}</p>
